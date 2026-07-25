@@ -1,0 +1,21 @@
+<cinemas>
+
+    <cinema
+        id="1"
+        name="J Cineplex (Junction City)"
+        location="Panbedan, Yangon"
+        image="cinema1"/>
+
+    <cinema
+        id="2"
+        name="J Cineplex (Junction Square)"
+        location="Kamayut, Yangon"
+        image="cinema2"/>
+
+    <cinema
+        id="3"
+        name="J Cineplex (Maw Tin)"
+        location="Lanmadaw, Yangon"
+        image="cinema3"/>
+
+</cinemas>

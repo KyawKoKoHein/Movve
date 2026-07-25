@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Movve</string>
+    <string name="movve">Movve</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">LOG IN</string>
+    <string name="or">OR</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="name">Name</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="download">Download</string>
+    <string name="profile">Profile</string>
+    <string name="trending_now">Trending Now</string>
+    <string name="see_all">See All</string>
+    <string name="popular">Popular</string>
+    <string name="details">Details</string>
+    <string name="movie_title">Spider-Man: Brand New Day</string>
+    <string name="otto">Otto 🙋‍♂️</string>
+    <string name="movie_name">Movie Name</string>
+    <string name="spider_man_brand_new_day">Spider-Man: Brand New Day</string>
+    <string name="_9_5_action_2026">★ 9.5 • Action • 2026</string>
+    <string name="play">▶ Play</string>
+    <string name="recommended_for_you">Recommended For You</string>
+    <string name="now_showing">Now Showing</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="date_time"><![CDATA[Date & Time]]></string>
+    <string name="seats">Seats</string>
+</resources>

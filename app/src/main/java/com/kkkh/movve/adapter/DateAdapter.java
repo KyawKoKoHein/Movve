@@ -15,21 +15,33 @@ import com.kkkh.movve.model.DateItem;
 
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> {
 
     private Context context;
-    private List<DateItem> list;
+    private ArrayList<DateItem> dateList;
+    private OnDateSelectedListener listener;
 
-    public DateAdapter(Context context, List<DateItem> list) {
+    public interface OnDateSelectedListener {
+        void onDateSelected(String date, String day);
+    }
+
+    public DateAdapter(Context context,
+                       ArrayList<DateItem> dateList,
+                       OnDateSelectedListener listener) {
+
         this.context = context;
-        this.list = list;
+        this.dateList = dateList;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(
+            @NonNull ViewGroup parent,
+            int viewType) {
 
         View view = LayoutInflater.from(context)
                 .inflate(R.layout.item_date, parent, false);
@@ -38,60 +50,61 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(
+            @NonNull ViewHolder holder,
+            int position) {
 
-        DateItem item = list.get(position);
+        DateItem item = dateList.get(position);
 
         holder.txtDate.setText(item.getDate());
         holder.txtDay.setText(item.getDay());
 
-        if(item.isSelected()){
+        if (item.isSelected()) {
 
             holder.card.setCardBackgroundColor(
                     Color.parseColor("#7903AB"));
 
-            holder.card.setStrokeWidth(0);
-
-        }else{
+        } else {
 
             holder.card.setCardBackgroundColor(
-                    Color.parseColor("#1F1F1F"));
-
-            holder.card.setStrokeWidth(1);
-
-            holder.card.setStrokeColor(
-                    Color.parseColor("#444444"));
+                    Color.parseColor("#2A2A2A"));
         }
 
-        holder.itemView.setOnClickListener(v->{
+        holder.itemView.setOnClickListener(v -> {
 
-            for(DateItem d : list)
-                d.setSelected(false);
+            for (DateItem date : dateList) {
+                date.setSelected(false);
+            }
 
             item.setSelected(true);
 
             notifyDataSetChanged();
 
+            if (listener != null) {
+                listener.onDateSelected(
+                        item.getDate(),
+                        item.getDay());
+            }
         });
-
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return dateList.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder {
 
         MaterialCardView card;
-        TextView txtDate,txtDay;
+        TextView txtDate;
+        TextView txtDay;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            card=itemView.findViewById(R.id.cardDate);
-            txtDate=itemView.findViewById(R.id.txtDate);
-            txtDay=itemView.findViewById(R.id.txtDay);
+            card = itemView.findViewById(R.id.cardDate);
+            txtDate = itemView.findViewById(R.id.txtDate);
+            txtDay = itemView.findViewById(R.id.txtDay);
         }
     }
 }

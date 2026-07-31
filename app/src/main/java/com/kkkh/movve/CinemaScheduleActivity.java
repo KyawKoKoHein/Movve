@@ -35,6 +35,16 @@ public class CinemaScheduleActivity extends AppCompatActivity {
 
     private MaterialButton btnContinue;
 
+    private int movieId;
+
+    private String selectedDate = "";
+    private String selectedDay = "";
+    private String selectedTime = "";
+    private String selectedCinema = "";
+
+    private int ticketPrice = 8000;
+    private String selectedCinemaScreen = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +58,26 @@ public class CinemaScheduleActivity extends AppCompatActivity {
                     CinemaScheduleActivity.this,
                     SeatSelectionActivity.class);
 
-            startActivity(intent);
+            // Movie
+            intent.putExtra("movieId", movieId);
 
+            // Cinema
+            intent.putExtra("cinemaName", selectedCinema);
+
+            // Date
+            intent.putExtra("selectedDate", selectedDate);
+            intent.putExtra("selectedDay", selectedDay);
+
+            // Showtime
+            intent.putExtra("selectedTime", selectedTime);
+
+            // Price
+            intent.putExtra("ticketPrice", ticketPrice);
+
+            // Cinema 1 or 2
+            intent.putExtra("cinemaScreen", selectedCinemaScreen);
+
+            startActivity(intent);
         });
 
         btnBack = findViewById(R.id.btnBack);
@@ -60,8 +88,11 @@ public class CinemaScheduleActivity extends AppCompatActivity {
         imageCinema = findViewById(R.id.cinemaImageInSchedule);
 
         String cinemaName = getIntent().getStringExtra("cinemaName");
+        selectedCinema = cinemaName;
 
         int cinemaImage = getIntent().getIntExtra("cinemaImage", R.drawable.cinema1);
+
+        movieId = getIntent().getIntExtra("movieId", -1);
 
         txtCinemaName.setText(cinemaName);
         imageCinema.setImageResource(cinemaImage);
@@ -93,7 +124,18 @@ public class CinemaScheduleActivity extends AppCompatActivity {
             calendar.add(Calendar.DAY_OF_MONTH, 1);
         }
 
-        rvDate.setAdapter(new DateAdapter(this, dates));
+        rvDate.setAdapter(
+                new DateAdapter(
+                        this,
+                        dates,
+                        (date, day) -> {
+
+                            selectedDate = date;
+                            selectedDay = day;
+
+                        }
+                )
+        );
 
 
         //For Time
@@ -131,6 +173,8 @@ public class CinemaScheduleActivity extends AppCompatActivity {
 
                     adapter1.setActive(true);
                     adapter2.setActive(false);
+                    selectedTime = cinema1.get(pos).getTime();
+                    selectedCinemaScreen = "Cinema 1";
                     btnContinue.setVisibility(View.VISIBLE);
 
                 });
@@ -146,6 +190,8 @@ public class CinemaScheduleActivity extends AppCompatActivity {
 
                     adapter2.setActive(true);
                     adapter1.setActive(false);
+                    selectedTime = cinema2.get(pos).getTime();
+                    selectedCinemaScreen = "Cinema 2";
                     btnContinue.setVisibility(View.VISIBLE);
 
                 });

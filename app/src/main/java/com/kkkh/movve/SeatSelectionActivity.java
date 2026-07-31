@@ -22,6 +22,16 @@ public class SeatSelectionActivity extends AppCompatActivity {
     private TextView txtSelectedSeats;
     private TextView txtTotalPrice;
     private Button btnContinue;
+    private int movieId;
+    private String cinemaName;
+    private String cinemaScreen;
+    private String selectedDate;
+    private String selectedTime;
+
+    private ArrayList<String> selectedSeats =
+            new ArrayList<>();
+
+    private int totalPrice = 0;
 
     private final int PRICE_PER_SEAT = 8000;
 
@@ -29,6 +39,20 @@ public class SeatSelectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_selection);
+
+        movieId = getIntent().getIntExtra("movieId", -1);
+
+        cinemaName =
+                getIntent().getStringExtra("cinemaName");
+
+        cinemaScreen =
+                getIntent().getStringExtra("cinemaScreen");
+
+        selectedDate =
+                getIntent().getStringExtra("selectedDate");
+
+        selectedTime =
+                getIntent().getStringExtra("selectedTime");
 
         btnBack = findViewById(R.id.btnBack);
         rvSeat = findViewById(R.id.rvSeat);
@@ -45,17 +69,21 @@ public class SeatSelectionActivity extends AppCompatActivity {
         createSeats(seats);
 
         SeatAdapter adapter =
-                new SeatAdapter(this, seats, selectedSeats -> {
+                new SeatAdapter(this, seats, selected -> {
+
+                    selectedSeats = selected;
 
                     txtSelectedSeats.setText(
                             "Seats : " + selectedSeats.toString());
 
-                    int total = selectedSeats.size() * PRICE_PER_SEAT;
+                    totalPrice =
+                            selectedSeats.size() * PRICE_PER_SEAT;
 
                     txtTotalPrice.setText(
-                            "MMK " + total);
+                            "MMK " + totalPrice);
 
-                    btnContinue.setEnabled(!selectedSeats.isEmpty());
+                    btnContinue.setEnabled(
+                            !selectedSeats.isEmpty());
 
                 });
 
@@ -64,7 +92,23 @@ public class SeatSelectionActivity extends AppCompatActivity {
         btnContinue.setOnClickListener(v -> {
 
             Intent intent =
-                    new Intent(this, PaymentActivity.class);
+                    new Intent(
+                            SeatSelectionActivity.this,
+                            PaymentActivity.class);
+
+            intent.putExtra("movieId", movieId);
+
+            intent.putExtra("cinemaName",cinemaName);
+
+            intent.putExtra("cinemaScreen", cinemaScreen);
+
+            intent.putExtra("selectedDate", selectedDate);
+
+            intent.putExtra("selectedTime", selectedTime);
+
+            intent.putStringArrayListExtra("selectedSeats", selectedSeats);
+
+            intent.putExtra("totalPrice", totalPrice);
 
             startActivity(intent);
 

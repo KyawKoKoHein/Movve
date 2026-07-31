@@ -26,9 +26,12 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.ViewHolder
     private int selectedCinemaPosition = -1;
     private String selectedTime = "";
 
-    public CinemaAdapter(Context context, List<Cinema> cinemaList) {
+    private int movieId;
+
+    public CinemaAdapter(Context context, List<Cinema> cinemaList, int movieId) {
         this.context = context;
         this.cinemaList = cinemaList;
+        this.movieId = movieId;
     }
 
     @NonNull
@@ -58,6 +61,8 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.ViewHolder
             intent.putExtra("cinemaName", cinema.getName());
 
             intent.putExtra("cinemaImage", cinema.getImage());
+
+            intent.putExtra("movieId", movieId);
 
             context.startActivity(intent);
 

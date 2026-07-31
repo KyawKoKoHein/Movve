@@ -83,7 +83,7 @@ public class MovieDetailActivity extends AppCompatActivity {
                     "Yangon",
                     "IMAX"));
 
-            rvCinema.setAdapter(new CinemaAdapter(this, cinemaList));
+            rvCinema.setAdapter(new CinemaAdapter(this, cinemaList, movieId));
         }
     }
 

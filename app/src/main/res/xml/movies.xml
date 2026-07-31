@@ -15,14 +15,14 @@
 
     <movie
         id="2"
-        title="Avengers: Endgame"
+        title="Spider-Man: Brand New Day"
         year="2019"
         genre="Action"
         duration="3h 1m"
-        rating="8.4"
+        rating="9.2"
         status="showing"
-        poster="avengers_endgame_poster"
-        banner="avengers_endgame_poster"
+        poster="spider_man_brand_new_day"
+        banner="spider_man_brand_new_day"
         description="The Avengers unite for one final battle against Thanos to restore the universe."/>
 
     <movie

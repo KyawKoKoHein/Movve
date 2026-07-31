@@ -12,7 +12,7 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="name">Name</string>
     <string name="home">Home</string>
-    <string name="favorite">Favorite</string>
+    <string name="my_tickets">My Tickets</string>
     <string name="download">Download</string>
     <string name="profile">Profile</string>
     <string name="trending_now">Trending Now</string>
@@ -23,7 +23,7 @@
     <string name="otto">Otto 🙋‍♂️</string>
     <string name="movie_name">Movie Name</string>
     <string name="spider_man_brand_new_day">Spider-Man: Brand New Day</string>
-    <string name="_9_5_action_2026">★ 9.5 • Action • 2026</string>
+    <string name="_9_2_action_2026">★ 9.2 • Action • 2026</string>
     <string name="play">▶ Play</string>
     <string name="recommended_for_you">Recommended For You</string>
     <string name="now_showing">Now Showing</string>

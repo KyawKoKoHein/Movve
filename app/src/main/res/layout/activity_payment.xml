@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#121212">
 
     <LinearLayout
@@ -12,158 +12,224 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_margin="16dp"
-            android:background="#66000000"
-            android:src="@drawable/baseline_arrow_back_24"
-            app:tint="@android:color/white" />
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
 
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/baseline_arrow_back_24"
+                app:tint="@android:color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Payment"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="42dp"
+                android:layout_height="1dp" />
+
+        </LinearLayout>
+
+
+        <!-- Booking Summary -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Payment"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="26sp"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
             android:text="Booking Summary"
-            android:textColor="#AAAAAA"
-            android:layout_marginTop="30dp"/>
+            android:textColor="@android:color/white"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="#1F1F1F">
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="#1F1F1F"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="18dp">
 
                 <TextView
                     android:id="@+id/txtMovie"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Movie"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtCinema"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="Cinema"
-                    android:textColor="#BBBBBB"
-                    android:layout_marginTop="8dp"/>
+                    android:textColor="#CCCCCC"
+                    android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/txtDateTime"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtDate"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/date_time"
-                    android:textColor="#BBBBBB"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="5dp"
+                    android:text="Date"
+                    android:textColor="#CCCCCC"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txtTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Time"
+                    android:textColor="#CCCCCC"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/txtSeats"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/seats"
-                    android:textColor="#BBBBBB"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="5dp"
+                    android:text="Seats"
+                    android:textColor="#CCCCCC"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="#444444" />
 
                 <TextView
-                    android:id="@+id/txtPrice"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtTotal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="MMK 17,000"
-                    android:textColor="#7903AB"
-                    android:textStyle="bold"
-                    android:textSize="22sp"
-                    android:layout_marginTop="15dp"/>
+                    android:layout_marginTop="14dp"
+                    android:gravity="end"
+                    android:text="Total: 0 MMK"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
+
+        <!-- Payment Method -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="28dp"
             android:text="Payment Method"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="21sp"
+            android:textStyle="bold" />
 
-        <androidx.cardview.widget.CardView
+
+        <RadioGroup
+            android:id="@+id/radioPayment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardCornerRadius="16dp"
-            app:cardBackgroundColor="#1F1F1F"
-            app:cardElevation="3dp">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/rbKBZPay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="16dp">
+                android:buttonTint="#7903AB"
+                android:text="KBZPay"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:padding="8dp" />
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/kbz_pay"/>
+            <RadioButton
+                android:id="@+id/rbAYAPay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="#7903AB"
+                android:text="AYAPay"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:padding="8dp" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="KBZPay"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Secure Mobile Payment"
-                        android:textColor="#BBBBBB"
-                        android:textSize="13sp"/>
-
-                </LinearLayout>
+        </RadioGroup>
 
 
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPay"
+        <!-- QR Section -->
+        <LinearLayout
+            android:id="@+id/layoutQr"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="30dp"
-            android:text="Pay with KBZPay"
-            android:textAllCaps="false"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txtQrTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan QR to Pay"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imgPaymentQr"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_marginTop="15dp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/txtPaymentInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="Please select a payment method."
+                android:textColor="#BBBBBB"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <!-- Confirm Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirmPayment"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="28dp"
+            android:text="Confirm Payment"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             app:backgroundTint="#7903AB"
-            app:cornerRadius="28dp"/>
+            app:cornerRadius="28dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
 
     </LinearLayout>
 

@@ -8,7 +8,7 @@
 
 
 ### Movie Details
-![Movie Details](screenshots/Detail.png)
+![Movie Details](screenshots/Movie_Detail.png)
 
 
 ### Picking Dates
@@ -16,7 +16,7 @@
 
 
 ### Selecting Seat
-![Selecting Seat](screenshots/Selecting Seat.png)
+![Selecting Seat](screenshots/Selecting_Seat.png)
 
 
 ### Payment
@@ -32,4 +32,4 @@
 
 
 ### My Tickets
-![My Tickets](screenshots/My Tickets.png)
+![My Tickets](screenshots/My_Tickets.png)

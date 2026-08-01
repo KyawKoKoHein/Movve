@@ -1,10 +1,10 @@
 ## Demo
 
 ### Login, Register Screen
-![Login Screen](screenshots/LogIn_Register.png)
+![Login Screen](screenshots/LogIn&Register.png)
 
 ### Home Screen
-![Home Screen](screenshots/Home.png)
+![Home Screen](screenshots/HomeScreen.png)
 
 
 ### Movie Details

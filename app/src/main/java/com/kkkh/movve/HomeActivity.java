@@ -1,6 +1,9 @@
 package com.kkkh.movve;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,11 +18,17 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     RecyclerView rvShowing;
+    private TextView txtUsername;
+    private ImageView imgProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        txtUsername = findViewById(R.id.txtUsername);
+        imgProfile = findViewById(R.id.imgProfile);
+        loadProfile();
 
         rvShowing = findViewById(R.id.rvShowing);
 
@@ -75,6 +84,42 @@ public class HomeActivity extends AppCompatActivity {
 
             return false;
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        loadProfile();
+    }
+
+    //Load profile
+    private void loadProfile(){
+
+        SharedPreferences preferences =
+                getSharedPreferences(
+                        "UserProfile",
+                        MODE_PRIVATE);
+
+        String name =
+                preferences.getString(
+                        "name",
+                        "Admin");
+
+        txtUsername.setText(name);
+
+        String imageUri =
+                preferences.getString(
+                        "profileImage",
+                        null);
+
+        if(imageUri != null){
+
+            imgProfile.setImageURI(
+                    Uri.parse(imageUri));
+
+        }
+
     }
 
 }

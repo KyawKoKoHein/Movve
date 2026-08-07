@@ -82,7 +82,7 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> {
 
             if (listener != null) {
                 listener.onDateSelected(
-                        item.getDate(),
+                        item.getFullDate(),
                         item.getDay());
             }
         });

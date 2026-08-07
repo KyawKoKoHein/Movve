@@ -59,7 +59,7 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatAdapter.ViewHolder> {
         if (seat.isReserved()) {
 
             holder.cardSeat.setCardBackgroundColor(
-                    Color.parseColor("#777777"));
+                    Color.parseColor("#ED1111"));
 
         } else if (seat.isSelected()) {
 

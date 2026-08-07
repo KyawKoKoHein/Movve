@@ -24,6 +24,8 @@ public class BookingHistoryActivity extends AppCompatActivity {
     TextView txtTime;
     TextView txtSeats;
     TextView txtPrice;
+
+    TextView txtNoData;
     private CardView cardTicket;
 
     @Override
@@ -37,6 +39,7 @@ public class BookingHistoryActivity extends AppCompatActivity {
         txtTime = findViewById(R.id.txtTime);
         txtSeats = findViewById(R.id.txtSeats);
         txtPrice = findViewById(R.id.txtPrice);
+        txtNoData = findViewById(R.id.txtNoData);
         cardTicket = findViewById(R.id.cardTicket);
 
         SharedPreferences preferences =
@@ -65,26 +68,27 @@ public class BookingHistoryActivity extends AppCompatActivity {
         int price =
                 preferences.getInt("totalPrice",0);
 
-        if(movieId==-1){
+        if(movieId == -1){
+            txtNoData.setText("There has no ticket history!");
 
             cardTicket.setVisibility(View.GONE);
 
-            return;
+        }else{
+
+            txtCinema.setText("Cinema : " + cinema + " [ " + selectedCinema + " ]");
+            txtDate.setText("Date : " + date);
+            txtTime.setText("Time : " + time);
+            txtPrice.setText("MMK " + price);
+
+            if(seats != null){
+                txtSeats.setText("Seats : " + seats);
+            }
+
+            loadMovieTitle(movieId);
 
         }
 
-        txtCinema.setText("Cinema : " + cinema + " [ " + selectedCinema + " ]");
-        txtDate.setText("Date : " + date);
-        txtTime.setText("Time : " + time);
-        txtPrice.setText("MMK " + price);
-
-        if(seats != null){
-
-            txtSeats.setText("Seats : " + seats.toString());
-
-        }
-
-        loadMovieTitle(movieId);
+//        loadMovieTitle(movieId);
 
         // Navigation
         BottomNavigationView bottomNavigation =

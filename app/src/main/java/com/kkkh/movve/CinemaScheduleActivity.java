@@ -113,13 +113,15 @@ public class CinemaScheduleActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd", Locale.getDefault());
         SimpleDateFormat dayFormat = new SimpleDateFormat("EEE", Locale.getDefault());
+        SimpleDateFormat fullDateFormat =new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault());
 
         for (int i = 0; i < 3; i++) {
 
             String date = dateFormat.format(calendar.getTime());
             String day = dayFormat.format(calendar.getTime());
+            String fullDate = fullDateFormat.format(calendar.getTime());
 
-            dates.add(new DateItem(date, day, i == 0));
+            dates.add(new DateItem(date, day,fullDate, i == 0));
 
             calendar.add(Calendar.DAY_OF_MONTH, 1);
         }
@@ -153,14 +155,14 @@ public class CinemaScheduleActivity extends AppCompatActivity {
                         false));
 
         ArrayList<ShowTime> cinema1 = new ArrayList<>();
-        cinema1.add(new ShowTime("10:30", false));
-        cinema1.add(new ShowTime("1:30", false));
-        cinema1.add(new ShowTime("4:30", false));
+        cinema1.add(new ShowTime("10:30 AM", false));
+        cinema1.add(new ShowTime("1:30 PM", false));
+        cinema1.add(new ShowTime("4:30 PM", false));
 
         ArrayList<ShowTime> cinema2 = new ArrayList<>();
-        cinema2.add(new ShowTime("11:00", false));
-        cinema2.add(new ShowTime("2:00", false));
-        cinema2.add(new ShowTime("5:00", false));
+        cinema2.add(new ShowTime("11:00 AM", false));
+        cinema2.add(new ShowTime("2:00 PM", false));
+        cinema2.add(new ShowTime("5:00 PM", false));
 
         adapter1 = new ShowtimeAdapter(
                 this,
